@@ -4,6 +4,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "Tejas Quote of the Day",
   description: "QOTD by Tejas",
+  base: '/Tejas-QOTD',
   themeConfig: {
 
     socialLinks: [
