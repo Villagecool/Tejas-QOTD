@@ -22,7 +22,7 @@ async function fetchAll() {
       let markdownTable = ''; // Table header
       rows.forEach(row => {
         const columns = row.split(',');
-        markdownTable = `## <span class="tt">"${columns[0]}"</span> <span class="su"> - Tejas Nyaharkar</span> <span class="VPBadge tip">${formatDate(columns[1])}</span>\n${markdownTable}`; // Table rows
+        markdownTable = `## <span class="ttt">"${columns[0]}"</span> <span class="sut"> - Tejas Nyaharkar</span> <span class="VPBadge tip">${formatDate(columns[1])}</span>\n${markdownTable}`; // Table rows
       });
       //AllQuotes.value = '| Quote | Date |\n|--|--|\n' + markdownTable; // Set the compiled Markdown
       AllQuotes.value = markdownTable
@@ -62,11 +62,11 @@ const compiledAll = computed(() => marked(AllQuotes.value));
   font-family: eb;
   src: url("./EBGaramond-Italic-VariableFont_wght.ttf");
 }
-.tt {
+.ttt {
   color: var( --vp-c-text-1);
   line-height: 1.5;
 }
-.su {
+.sut {
   font-family: eb;
   color: var( --vp-c-text-2);
 }
