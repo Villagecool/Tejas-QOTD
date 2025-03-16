@@ -15,7 +15,7 @@ layout: page
 import { computed, ref, onMounted } from 'vue';
 import { marked } from "marked";
 
-const bgImageUrl = ref(`./${getRandomInt(1,4)}.png`)
+const bgImageUrl = ref(`https://github.com/Villagecool/Tejas-QOTD/blob/main/docs/${getRandomInt(1,4)}.png?raw=true`)
 
 const lastItem = ref('');
 const lastQuote = ref('');
