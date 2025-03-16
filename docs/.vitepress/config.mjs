@@ -7,9 +7,13 @@ export default defineConfig({
   base: '/Tejas-QOTD',
   head: [['link', { rel: 'icon', href: 'https://github.com/Villagecool/Tejas-QOTD/blob/main/docs/favicon.ico?raw=true' }]],
   themeConfig: {
-
+    logo: 'https://github.com/Villagecool/Tejas-QOTD/blob/main/docs/favicon.ico?raw=true',
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
-    ]
+      { icon: 'github', link: 'https://github.com/Villagecool/Tejas-QOTD' }
+    ],
+    nav: [
+      { text: 'Home', link: '/' },
+      { text: 'History', link: '/history' }
+    ],
   }
 })

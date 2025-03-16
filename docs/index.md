@@ -1,7 +1,7 @@
 ---
 layout: page
 ---
-<div class="hero">
+<div class="hero" :style="{ '--bg-image': `url('${bgImageUrl}')`}">
 </div>
 
   <div class="hero-content">
@@ -14,6 +14,8 @@ layout: page
 <script setup>
 import { computed, ref, onMounted } from 'vue';
 import { marked } from "marked";
+
+const bgImageUrl = ref(`./${getRandomInt(1,4)}.png`)
 
 const lastItem = ref('');
 const lastQuote = ref('');
@@ -70,6 +72,11 @@ async function fetchLastAll() {
     all = '';
   }
 }
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
 onMounted(fetchLastItem);
 onMounted(fetchLastDate);
@@ -93,7 +100,7 @@ const compiledAll = computed(() => marked(all));
   height: min(100vh, 100vw); /* Ensures a perfect square */
   right: 0; /* Snaps it to the right */
   top: 0;
-  background: url('./2.png') right center/cover no-repeat; /* Background image */
+  background: var(--bg-image) right center/cover no-repeat; /* Background image */
 }
 
 .hero::before {
@@ -106,7 +113,7 @@ const compiledAll = computed(() => marked(all));
 .hero-content {
   position: absolute;
   top: 50%;  /* Moves the element down by 50% of its parent */
-  left: 50px; /* Adjust as needed for left alignment */
+  left: 5%; /* Adjust as needed for left alignment */
   transform: translateY(40vh); /* Pulls it up by 50% of its own height */
   color: white; /* Text color */
   text-align: left;
