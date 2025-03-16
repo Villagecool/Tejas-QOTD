@@ -34,20 +34,16 @@ async function fetchAll() {
   }
 }
 function formatDate(dateStr) {
+  if (!dateStr) return 'Unknown Day';
   // Split the date string into day, month, and year
-  const [month, day, year] = dateStr.split('/');
+  const [day, month, year] = dateStr.split('/');
+  
+  if (dateStr.split('/').length != 3) return dateStr;
 
-  // Create a Date object with the extracted date
-  const date = new Date(`${year}-${month}-${day}`);
-
-  // Array of month names
-  const monthNames = [
-    'January', 'February', 'March', 'April', 'May', 'June', 
-    'July', 'August', 'September', 'October', 'November', 'December'
-  ];
+  const monthNames = [ 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ];
 
   // Format the date as "Month Day, Year"
-  return `${monthNames[date.getMonth()]} ${parseInt(day)}, ${year}`;
+  return `${monthNames[month-1]} ${parseInt(day)}, ${year}`;
 }
 
 // Trigger the data fetch on page load

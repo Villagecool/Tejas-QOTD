@@ -6,7 +6,7 @@ layout: page
 
   <div class="hero-content">
     <span class="tt">"{{ lastItem }}"</span><br><br>
-    <span class="su">- Tejas Nyaharkar, {{ lastQuote }}</span>
+    <span class="su">- Tejas Nyaharkar, {{ formatDate(lastQuote) }}</span>
   </div>
   
 <div v-html="compiledAll"></div>
@@ -15,7 +15,7 @@ layout: page
 import { computed, ref, onMounted } from 'vue';
 import { marked } from "marked";
 
-const bgImageUrl = ref(`https://github.com/Villagecool/Tejas-QOTD/blob/main/docs/${getRandomInt(1,4)}.png?raw=true`)
+const bgImageUrl = ref(`https://github.com/Villagecool/Tejas-QOTD/blob/main/docs/${getRandomInt(1,7)}.png?raw=true`)
 
 const lastItem = ref('');
 const lastQuote = ref('');
@@ -82,6 +82,18 @@ onMounted(fetchLastItem);
 onMounted(fetchLastDate);
 onMounted(fetchLastAll);
 const compiledAll = computed(() => marked(all));
+
+function formatDate(dateStr) {
+  if (!dateStr) return 'Unknown Day';
+  // Split the date string into day, month, and year
+  const [day, month, year] = dateStr.split('/');
+  if (dateStr.split('/').length != 3) return dateStr;
+
+  const monthNames = [ 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ];
+
+  // Format the date as "Month Day, Year"
+  return `${monthNames[month-1]} ${parseInt(day)}, ${year}`;
+}
 </script>
 
 <style>
