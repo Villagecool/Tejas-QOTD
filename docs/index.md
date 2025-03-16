@@ -115,13 +115,13 @@ const compiledAll = computed(() => marked(all));
 }
 .tt {
   font-family: vegan;
-  font-size: 100px;
+  font-size: 5vw;
   color: var( --vp-c-text-1);
   line-height: 1.5;
 }
 .su {
   font-family: eb;
   color: var( --vp-c-text-2);
-  font-size: 50px;
+  font-size: 4vw;
 }
 </style>
